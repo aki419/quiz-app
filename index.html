@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一般常識クイズ</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div id="app">
+
+    <!-- スタート画面 -->
+    <div id="start-screen" class="screen">
+      <h1 class="title">一般常識クイズ</h1>
+      <p class="subtitle">全5問・4択形式</p>
+      <button id="start-btn" class="btn btn-primary">スタート</button>
+    </div>
+
+    <!-- クイズ画面 -->
+    <div id="quiz-screen" class="screen hidden">
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+      <div class="quiz-header">
+        <p id="question-number" class="question-number"></p>
+        <div id="timer" class="timer">10</div>
+      </div>
+      <p id="question-text" class="question-text"></p>
+      <div id="choices" class="choices"></div>
+      <div id="feedback" class="feedback hidden">
+        <p id="feedback-text"></p>
+        <p id="correct-answer-text" class="correct-answer-text"></p>
+      </div>
+      <button id="next-btn" class="btn btn-primary hidden">次の問題へ</button>
+    </div>
+
+    <!-- 結果画面 -->
+    <div id="result-screen" class="screen hidden">
+      <h2 class="result-title">クイズ終了！</h2>
+      <div class="score-display">
+        <span id="score-text" class="score-text"></span>
+        <p id="score-comment" class="score-comment"></p>
+      </div>
+      <div class="chart-container">
+        <canvas id="result-chart"></canvas>
+      </div>
+      <button id="retry-btn" class="btn btn-primary">もう一度挑戦</button>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

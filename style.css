@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  background: #f0f4f8;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+#app {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* 共通スクリーン */
+.screen {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: #4f7cff;
+  color: #ffffff;
+  width: 100%;
+  margin-top: 24px;
+}
+
+/* ---- スタート画面 ---- */
+.title {
+  font-size: 2rem;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #718096;
+  margin-bottom: 32px;
+  font-size: 0.95rem;
+}
+
+/* ---- クイズ画面 ---- */
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 99px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4f7cff;
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.question-number {
+  font-size: 0.85rem;
+  color: #718096;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.timer {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #4f7cff;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+
+.timer.warning {
+  background: #e53e3e;
+  animation: pulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to   { transform: scale(1.12); }
+}
+
+.question-text {
+  font-size: 1.15rem;
+  color: #1a202c;
+  font-weight: bold;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+/* 選択肢 */
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.choice-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #2d3748;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+  line-height: 1.5;
+}
+
+.choice-btn:hover:not(:disabled) {
+  border-color: #4f7cff;
+  background: #ebf0ff;
+}
+
+.choice-btn:disabled {
+  cursor: default;
+}
+
+.choice-btn.correct {
+  border-color: #38a169;
+  background: #f0fff4;
+  color: #276749;
+  font-weight: bold;
+}
+
+.choice-btn.incorrect {
+  border-color: #e53e3e;
+  background: #fff5f5;
+  color: #9b2c2c;
+}
+
+/* フィードバック */
+.feedback {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.feedback.correct-feedback {
+  background: #f0fff4;
+  border-left: 4px solid #38a169;
+}
+
+.feedback.incorrect-feedback {
+  background: #fff5f5;
+  border-left: 4px solid #e53e3e;
+}
+
+#feedback-text {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.feedback.correct-feedback #feedback-text {
+  color: #276749;
+}
+
+.feedback.incorrect-feedback #feedback-text {
+  color: #9b2c2c;
+}
+
+.correct-answer-text {
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+/* ---- 結果画面 ---- */
+.result-title {
+  font-size: 1.6rem;
+  color: #1a202c;
+  margin-bottom: 32px;
+}
+
+.score-display {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 32px 24px;
+  margin-bottom: 8px;
+}
+
+.score-text {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4f7cff;
+  margin-bottom: 12px;
+}
+
+.score-comment {
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.chart-container {
+  margin-top: 24px;
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 20px 16px;
+}
